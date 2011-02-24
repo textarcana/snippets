@@ -1,0 +1,12 @@
+[alias]
+        ci = commit
+        co = checkout
+        st = status
+        up = pull
+
+[push]
+        default = current
+
+[branch "master"]
+        remote = origin
+        merge  = refs/heads/master
