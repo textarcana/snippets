@@ -1,0 +1,26 @@
+ul {
+   list-style-type: none;
+   padding: 0;
+}
+
+li {
+   display: block;
+   float: left;
+   margin: 1em;
+   padding: 2em;
+   border: 1px solid #ccc;
+   width: 300px;
+}
+
+p {
+  border: 1px dashed #ccc;
+   margin: 1em;
+   padding: 2em;
+
+}
+
+div {
+   float: left;
+   width: 800px;
+   border: 1px solid #9cc;
+}
