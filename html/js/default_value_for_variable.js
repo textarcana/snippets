@@ -7,4 +7,4 @@
   */
 
 var default_for_foo = 789;
-var refresh_timeout = (typeof foo !== 'undefined' ? foo : default_for_foo);
+var foo = (typeof foo !== 'undefined' ? foo : default_for_foo);
