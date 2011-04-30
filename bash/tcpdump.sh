@@ -20,7 +20,7 @@ sudo tcpdump -S -s 0 port 80 and net 10.0.1.0/24
 
 # show Web traffic and display ASCII text (HTML) contained in packets
 
-sudo tcpdump -vvvnSA -s 0 -i en1 port 80
+sudo tcpdump -vvvSA -s 0 -i en1 port 80
 
 # Show all hosts on the local subnet by
 # performing reverse DNS lookups.
