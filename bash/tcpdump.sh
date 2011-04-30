@@ -2,15 +2,23 @@
 
 sudo tcpdump -S -i eth0 host example.com
 
+# minimal output
+
+sudo tcpdump -qt port 80
+
 # show all udp, icmp or tcp packet traffic
 
 sudo tcpdump -S udp
 
-# show ethernet traffic / MAC addresses
+# ethernet traffic / MAC addresses
 
-sudo tcpdump -qeS -s 0 -i en1 port 8080
+sudo tcpdump -qte -s 0 -i en1
 
-# im in ur web browzar, sniffin ur pakkitz
+# http traffic originating from a specific subnet
+
+sudo tcpdump -S -s 0 port 80 and net 10.0.1.0/24
+
+# show Web traffic and display ASCII text (HTML) contained in packets
 
 sudo tcpdump -vvvnSA -s 0 -i en1 port 80
 
@@ -20,11 +28,11 @@ sudo tcpdump -vvvnSA -s 0 -i en1 port 80
 
 nmap -sL 10.0.1.0/24
 
-# Find hosts that respond to pings.
+# Discover hosts that respond to pings.
 
 nmap -sP -T4 --reason 10.0.1.0/24 
 
-# show all packets sent and received by nmap
+# Discover hosts and show all packets sent and received by Nmap
 
 nmap -sP -T4 --reason --packet-trace 10.0.1.0/28
 
