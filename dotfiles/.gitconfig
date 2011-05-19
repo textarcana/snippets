@@ -1,0 +1,16 @@
+[alias]
+        ci = commit
+        co = checkout
+        st = status
+        up = pull
+	lpo = log --pretty=oneline --abbrev-commit --graph --decorate
+	s = status -s -u
+	d = diff --color-words
+	sync = !git pull && git push
+
+[push]
+        default = current
+
+[branch "master"]
+        remote = origin
+        merge  = refs/heads/master
