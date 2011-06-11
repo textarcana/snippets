@@ -1,6 +1,9 @@
 # humanize
 require 'humanize'
-puts 1427228946471605830963606579751332537625641011.humanize
+
+approximate_age_of_the_universe_in_English = (433 * 10**15).humanize
+
+seconds_since_epoch_in_English = `date '+%s'`.to_i.humanize
 
 # factorials
 puts "factorial 5: " + 5.downto(1).inject(:*)
