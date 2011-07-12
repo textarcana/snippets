@@ -1,4 +1,4 @@
-# See http://stackoverflow.com/questions/2232/calling-bash-commands-from-ruby
+# See http://stackoverflow.com/questions/1032114/check-for-ruby-gem-availability
 
 begin
   gem "cucumber", ">=0.10.5"
