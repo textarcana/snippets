@@ -35,7 +35,19 @@ def nth_odd number
 end
 
 # hexagonal numbers
+#
+# can be used to calculate the number of ways to choose 2 colors from
+# a color pallette of n^2 colors
 
 def hexagonal number
+  number == 0 and return 0
   triangular nth_odd(number)
+end
+
+# series
+
+def series funkshun, max
+  acc = []
+  max.times {|i| acc.push send(funkshun, max) }
+  acc
 end
