@@ -25,3 +25,17 @@ end
 def triangular number
   (0..number).inject{|sum,x| sum + x }
 end
+
+# odd numbers
+
+def nth_odd number
+  acc = []
+  (2 * number).times {|i| acc.push i if i % 2 != 0}
+  return acc.last
+end
+
+# hexagonal numbers
+
+def hexagonal number
+  triangular nth_odd(number)
+end
