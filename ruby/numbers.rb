@@ -17,9 +17,9 @@ end
 # triangular numbers
 #
 # This function can be used to compute complexity of communication.
-# Think of it as the number of possible bi-directional connections in
-# a network.  Or, more to the point, the number of ways a message can
-# be passed between n people, see Brooks' Law
+# Think of T(n-1) as the number of possible bi-directional connections
+# in a network with n nodes.  Or, more to the point, the number of
+# ways a message can be passed between n people, see Brooks' Law
 
 def triangular number
   (0..number).inject{|sum,x| sum + x }
