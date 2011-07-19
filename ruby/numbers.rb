@@ -27,6 +27,9 @@ def triangular number
 end
 
 # odd numbers
+#
+# What is the zeroth odd number???
+# Is it 1 or is it nil?
 
 def nth_odd number
   acc = []
@@ -48,6 +51,6 @@ end
 
 def series funkshun, max
   acc = []
-  max.times {|i| acc.push send(funkshun, max) }
+  max.times {|i| acc.push send(funkshun, i) }
   acc
 end
