@@ -11,6 +11,7 @@ PHI = (1 + Math.sqrt(5)) / 2
 # factorials
 
 def factorial n
+  n == 0 and return 1
   (1..n).inject{|base,x| base * x }
 end
 
