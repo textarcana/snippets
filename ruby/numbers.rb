@@ -31,7 +31,7 @@ end
 # What is the zeroth odd number???
 # Is it 1 or is it nil?
 
-def nth_odd number
+def odd number
   acc = []
   (2 * number).times {|i| acc.push i if i % 2 != 0}
   return acc.last
@@ -44,7 +44,7 @@ end
 
 def hexagonal number
   number == 0 and return 0
-  triangular nth_odd(number)
+  triangular odd(number)
 end
 
 # series
@@ -53,4 +53,16 @@ def series funkshun, max
   acc = []
   max.times {|i| acc.push send(funkshun, i) }
   acc
+end
+
+def odd_series n
+  series :odd, n
+end
+
+def triangular_series n
+  series :triangular, n
+end
+
+def hexagonal_series n
+  series :hexagonal, n
 end
