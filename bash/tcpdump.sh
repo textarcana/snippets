@@ -49,3 +49,6 @@ nmap -sP -T4 --reason --packet-trace 10.0.1.0/28
 
 nc -vz 10.0.1.9 8000-8999 2> /dev/null
 
+# capture traffic for later viewing in wireshark
+
+tcpdump -w somefile.cap -s 1500 -n -i en1 net 10.0.1.9
