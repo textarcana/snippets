@@ -14,10 +14,15 @@
 # actually would like to find out what happens if there is no
 # JavaScript.
 #
+# Once you have a log going, you can grep for interesting response
+# codes:
+#
+#     grep 'response... ' example.com.log | grep -v 200
+#
 # As written, DOES NOT RESPECT ROBOTS.TXT -- use at your own
 # (non-trivial) risk, or just delete the option -erobots=off
 #
-# Requires wget 1.12 or better.
+# Probably requires wget 1.12 or better, ymmv.
 
 test -n $1 || echo "usage: wget_scraper.sh example.com"
 
