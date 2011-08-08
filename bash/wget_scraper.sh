@@ -3,6 +3,8 @@
 #
 # As written, DOES NOT RESPECT ROBOTS.TXT -- use at your own
 # (non-trivial) risk, or just delete the option -erobots=off
+#
+# Requires wget 1.12 or better.
 
 test -n $1 || echo "usage: wget_scraper.sh example.com"
 
@@ -15,7 +17,7 @@ test -e $NAME_FOR_LOG && mv $NAME_FOR_LOG.log $NAME_FOR_LOG.`date +%C%y-%m-%d-at
 
 wget -r -l inf -H -nc -w$WAIT_TIME \
     --random-wait --limit-rate=80k -erobots=off \
-    --timeout=$TIMEOUT
+    --timeout=$TIMEOUT \
     --page-requisites -D $DOMAIN \
     --restrict-file-names=unix \
     -U "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.14) Gecko/2009090214" \
