@@ -17,7 +17,8 @@
 # Once you have a log going, you can grep for interesting response
 # codes:
 #
-#     grep 'response... ' example.com.log | grep -v 200
+#     grep 'response... '     example.com.log | grep -v  200
+#     grep -B2 'response... ' example.com.log | grep -B2 400
 #
 # As written, DOES NOT RESPECT ROBOTS.TXT -- use at your own
 # (non-trivial) risk, or just delete the option -erobots=off
