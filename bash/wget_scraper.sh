@@ -7,7 +7,7 @@
 test -n $1 || echo "usage: wget_scraper.sh example.com"
 
 export DOMAIN=$1
-export NAME_FOR_LOG=$1_log
+export NAME_FOR_LOG=$1
 export TIMEOUT=60
 export WAIT_TIME=23
 
