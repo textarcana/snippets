@@ -1,8 +1,7 @@
 # totals and averages of the token and line counts produced by
 # PHPCodeSniffer verbose output
 
-find . -name "*php" | \
-     xargs phpcs -v | \
+phpcs -v . | \
      perl -lne 'BEGIN{
                       $tokens=0;
                       $lines=0;
