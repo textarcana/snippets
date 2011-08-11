@@ -3,23 +3,23 @@
     * Trend function is from http://phpsnips.com/snippet.php?id=45 
     */
 
-function trend($array, $output) { 
-  if (!is_array($array)) { 
+function trend($list, $type) { 
+  if (!is_array($list)) { 
     return false; 
   }
-  switch($output) { 
+  switch($type) { 
   case 'mean': 
-    $count = count($array); 
-    $sum = array_sum($array); 
+    $count = count($list); 
+    $sum = array_sum($list); 
     $total = $sum / $count; 
   break; 
   case 'median': 
-    rsort($array); 
-    $middle = round(count($array) / 2); 
-    $total = $array[$middle-1]; 
+    rsort($list); 
+    $middle = round(count($list) / 2); 
+    $total = $list[$middle-1]; 
   break; 
   case 'mode': 
-    $v = array_count_values($array); 
+    $v = array_count_values($list); 
     arsort($v); 
     foreach($v as $k => $v) {
       $total = $k; 
@@ -27,17 +27,17 @@ function trend($array, $output) {
     } 
   break; 
   case 'range': 
-    sort($array); 
-    $sml = $array[0]; 
-    rsort($array); 
-    $lrg = $array[0]; 
+    sort($list); 
+    $sml = $list[0]; 
+    rsort($list); 
+    $lrg = $list[0]; 
     $total = $lrg - $sml; 
   break; 
   case 'low':
-    $total = min($array);
+    $total = min($list);
   break;
   case 'high':
-    $total = max($array);
+    $total = max($list);
   break;
  }
   return $total; 
