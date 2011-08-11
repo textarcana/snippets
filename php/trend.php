@@ -28,10 +28,10 @@ function trend($list, $type) {
   break; 
   case 'range': 
     sort($list); 
-    $sml = $list[0]; 
+    $small = $list[0]; 
     rsort($list); 
-    $lrg = $list[0]; 
-    $total = $lrg - $sml; 
+    $large = $list[0]; 
+    $total = $large - $small; 
   break; 
   case 'low':
     $total = min($list);
