@@ -58,7 +58,7 @@ function trend($list, $type) {
         array_push($values['1001 or greater'], $number);
       }
       $total = sprintf(
-                       "<10: %s\n11-100: %s\n101-1000: %s\n>1000: %s",
+                       "log10 buckets\n\t<10: %s\n\t11-100: %s\n\t101-1000: %s\n\t>1000: %s",
                        implode(', ', $values['0 to 10']),
                        implode(', ', $values['11 to 100']),
                        implode(', ', $values['101 to 1000']), 
