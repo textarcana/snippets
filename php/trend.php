@@ -46,7 +46,7 @@ function trend($list, $type) {
                   '101 to 1000'     => array(),
                   '1001 or greater' => array(),
                   );
-    rsort($list);
+    sort($list);
     foreach($list as $number){
       if ($number <= 10){
         array_push($values['0 to 10'], $number);
