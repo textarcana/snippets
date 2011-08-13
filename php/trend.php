@@ -1,45 +1,45 @@
 <?php
    /**
-    * Trend function is from http://phpsnips.com/snippet.php?id=45 
+    * Trend function is from http://phpsnips.com/snippet.php?id=45
     */
 
-function trend($list, $type) { 
-  if (!is_array($list)) { 
-    return false; 
+function trend($list, $type) {
+  if (!is_array($list)) {
+    return false;
   }
-  switch($type) { 
-  case 'mean': 
-    $count = count($list); 
-    $sum = array_sum($list); 
-    $total = $sum / $count; 
-  break; 
-  case 'median': 
-    rsort($list); 
-    $middle = round(count($list) / 2); 
-    $total = $list[$middle-1]; 
-  break; 
-  case 'mode': 
-    $v = array_count_values($list); 
-    arsort($v); 
+  switch($type) {
+  case 'mean':
+    $count = count($list);
+    $sum = array_sum($list);
+    $total = $sum / $count;
+  break;
+  case 'median':
+    rsort($list);
+    $middle = round(count($list) / 2);
+    $total = $list[$middle-1];
+  break;
+  case 'mode':
+    $v = array_count_values($list);
+    arsort($v);
     foreach($v as $k => $v) {
-      $total = $k; 
+      $total = $k;
       break;
-    } 
-  break; 
-  case 'mode_rank': 
-    $v = array_count_values($list); 
-    arsort($v); 
+    }
+  break;
+  case 'mode_rank':
+    $v = array_count_values($list);
+    arsort($v);
     foreach($v as $k => $v) {
-      $total[] = "$k ($v)"; 
-    } 
-  break; 
-  case 'range': 
-    sort($list); 
-    $small = $list[0]; 
-    rsort($list); 
-    $large = $list[0]; 
-    $total = $large - $small; 
-  break; 
+      $total[] = "$k ($v)";
+    }
+  break;
+  case 'range':
+    sort($list);
+    $small = $list[0];
+    rsort($list);
+    $large = $list[0];
+    $total = $large - $small;
+  break;
   case 'low':
     $total = min($list);
   break;
@@ -48,7 +48,7 @@ function trend($list, $type) {
   break;
   case 'log10_buckets':
     $values=array(
-                  '0 to 10'         => array(), 
+                  '0 to 10'         => array(),
                   '11 to 100'       => array(),
                   '101 to 1000'     => array(),
                   '1001 or greater' => array(),
@@ -68,26 +68,26 @@ function trend($list, $type) {
                        "log10 buckets\n\t<10: %s\n\t11-100: %s\n\t101-1000: %s\n\t>1000: %s",
                        implode(', ', $values['0 to 10']),
                        implode(', ', $values['11 to 100']),
-                       implode(', ', $values['101 to 1000']), 
+                       implode(', ', $values['101 to 1000']),
                        implode(', ', $values['1001 or greater'])
                        );
     }
   break;
  }
-  return $total; 
+  return $total;
 }
 
 function trends_for($list) {
   return sprintf(
-                 "%s\ncount of values: %s\nhigh: %.2f\nlow: %.2f\nrange: %.2f\nmean: %.2f\nmedian: %.2f\nmode: %.2f\n\nfrequent values: %s\n\n%s", 
-                 implode(' ,', $list), 
-                 count($list), 
+                 "%s\ncount of values: %s\nhigh: %.2f\nlow: %.2f\nrange: %.2f\nmean: %.2f\nmedian: %.2f\nmode: %.2f\n\nfrequent values: %s\n\n%s",
+                 implode(' ,', $list),
+                 count($list),
                  trend($list, 'high'),
                  trend($list, 'low'),
                  trend($list, 'range'),
-                 trend($list, 'mean'), 
-                 trend($list, 'median'), 
-                 trend($list, 'mode'), 
+                 trend($list, 'mean'),
+                 trend($list, 'median'),
+                 trend($list, 'mode'),
                  implode(', ', trend($list, 'mode_rank')),
                  trend($list, 'log10_buckets')
                  );
