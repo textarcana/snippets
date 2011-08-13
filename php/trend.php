@@ -49,6 +49,9 @@ function trend($list, $type) {
     $v = count_frequency_of_values($list);
     arsort($v);
     foreach($v as $k => $v) {
+      if ($v == 1){
+        break;
+      }
       $total[] = "$k ($v)";
     }
   break;
