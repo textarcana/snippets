@@ -79,8 +79,9 @@ function trend($list, $type) {
 
 function trends_for($list) {
   return sprintf(
-                 "%s\nhigh: %.2f\nlow: %.2f\nrange: %.2f\nmean: %.2f\nmedian: %.2f\nmode: %.2f\n\nfrequent values: %s\n\n%s", 
+                 "%s\ncount of values: %s\nhigh: %.2f\nlow: %.2f\nrange: %.2f\nmean: %.2f\nmedian: %.2f\nmode: %.2f\n\nfrequent values: %s\n\n%s", 
                  implode(' ,', $list), 
+                 count($list), 
                  trend($list, 'high'),
                  trend($list, 'low'),
                  trend($list, 'range'),
