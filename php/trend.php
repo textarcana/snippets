@@ -52,6 +52,15 @@ function trend($list, $type) {
       $total[] = "$k ($v)";
     }
   break;
+  case 'long_tail':
+    $total = 0;
+    $v = count_frequency_of_values($list);
+    foreach($v as $k => $v) {
+      if ($v == 1){
+        $total += 1;
+      }
+    }
+  break;
   case 'range':
     sort($list);
     $small = $list[0];
@@ -98,7 +107,7 @@ function trend($list, $type) {
 
 function trends_for($list) {
   return sprintf(
-                 "%s\ncount of values: %s\nhigh: %.2f\nlow: %.2f\nrange: %.2f\nmean: %.2f\nmedian: %.2f\nmode: %.2f\n\nfrequent values: %s\n\n%s",
+                 "%s\ncount of values: %s\nhigh: %.2f\nlow: %.2f\nrange: %.2f\nmean: %.2f\nmedian: %.2f\nmode: %.2f\nlong tail: %s\n\nfrequent values: %s\n\n%s",
                  implode(' ,', $list),
                  count($list),
                  trend($list, 'high'),
@@ -107,6 +116,7 @@ function trends_for($list) {
                  trend($list, 'mean'),
                  trend($list, 'median'),
                  trend($list, 'mode'),
+                 trend($list, 'long_tail'),
                  implode(', ', trend($list, 'mode_rank')),
                  trend($list, 'log10_buckets')
                  );
