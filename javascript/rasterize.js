@@ -1,7 +1,7 @@
 /**
  * take a screenshot with PhantomJS
  *
- * This is a copy of code from the PhantomJS examples pae,
+ * This is a copy of code from the PhantomJS examples page,
  * see http://code.google.com/p/phantomjs/wiki/QuickStart#Rendering
  */
 
