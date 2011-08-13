@@ -1,4 +1,4 @@
-|<?php
+<?php
    /**
     * Trend function is from http://phpsnips.com/snippet.php?id=45 
     */
@@ -23,7 +23,14 @@ function trend($list, $type) {
     arsort($v); 
     foreach($v as $k => $v) {
       $total = $k; 
-      break; 
+      break;
+    } 
+  break; 
+  case 'mode_rank': 
+    $v = array_count_values($list); 
+    arsort($v); 
+    foreach($v as $k => $v) {
+      $total[] = "$k ($v)"; 
     } 
   break; 
   case 'range': 
@@ -72,7 +79,7 @@ function trend($list, $type) {
 
 function trends_for($list) {
   return sprintf(
-                 "%s\nhigh: %.2f\nlow: %.2f\nrange: %.2f\nmean: %.2f\nmedian: %.2f\nmode: %.2f\n%s", 
+                 "%s\nhigh: %.2f\nlow: %.2f\nrange: %.2f\nmean: %.2f\nmedian: %.2f\nmode: %.2f\n\nfrequent values: %s\n\n%s", 
                  implode(' ,', $list), 
                  trend($list, 'high'),
                  trend($list, 'low'),
@@ -80,6 +87,7 @@ function trends_for($list) {
                  trend($list, 'mean'), 
                  trend($list, 'median'), 
                  trend($list, 'mode'), 
+                 implode(', ', trend($list, 'mode_rank')),
                  trend($list, 'log10_buckets')
                  );
 }
