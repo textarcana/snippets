@@ -1,7 +1,26 @@
 <?php
-   /**
-    * Trend function is from http://phpsnips.com/snippet.php?id=45
-    */
+
+/**
+ * array_count_values() does something very similar, but only works if
+ * the array keys are strings or integers
+ */
+
+function count_frequency_of_values($list){
+  $values_seen = array();
+  foreach($list as $value){
+    $value_string = (string)$value;
+    if (isset($values_seen[$value_string])){
+      $values_seen[$value_string] += 1;
+    } else {
+      $values_seen[$value_string] = 1;
+    }
+  }
+  return $values_seen;
+}
+
+/**
+ * Trend function is from http://phpsnips.com/snippet.php?id=45
+ */
 
 function trend($list, $type) {
   if (!is_array($list)) {
@@ -19,7 +38,7 @@ function trend($list, $type) {
     $total = $list[$middle-1];
   break;
   case 'mode':
-    $v = array_count_values($list);
+    $v = count_frequency_of_values($list);
     arsort($v);
     foreach($v as $k => $v) {
       $total = $k;
@@ -27,7 +46,7 @@ function trend($list, $type) {
     }
   break;
   case 'mode_rank':
-    $v = array_count_values($list);
+    $v = count_frequency_of_values($list);
     arsort($v);
     foreach($v as $k => $v) {
       $total[] = "$k ($v)";
