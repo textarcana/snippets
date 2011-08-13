@@ -4,4 +4,4 @@ export OUTFILE=$FILE_NAME"_"$DATE_STRING
 
 /usr/bin/phantomjs rasterize.js $1 $OUTFILE
 
-echo $OUTFILE
+
