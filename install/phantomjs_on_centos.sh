@@ -18,3 +18,8 @@ qmake-qt47 && make
 
 cp bin/phantomjs /usr/bin/
 
+# For headless screenshots, start Xvfb with 24 bit color
+
+Xvfb :99 -ac -screen 0 1280x1024x24 &
+export DISPLAY=:99
+
