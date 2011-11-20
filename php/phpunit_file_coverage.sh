@@ -13,8 +13,12 @@ diff -U0 /tmp/test_file_identifiers /tmp/php_class_file_identifiers | egrep '^-[
 
 diff -U0 /tmp/test_file_identifiers /tmp/php_class_file_identifiers | egrep '^\+[^\+]' | cut -c2- > /tmp/classes_without_tests
 
+git log -n1 --format="As of commit %H on %cd"
+
 echo 'Tests without classes\n\n'
 
+# This line munges the name of .*Tests.php files to .*Test.php but
+# meh, we shouldn't be doing that any more anyway.
 cat /tmp/tests_without_classes | perl -lpe 's{(.*)}{$1Test.php}'
 
 echo '\n\nClasses without tests\n\n'
