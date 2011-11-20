@@ -1,8 +1,8 @@
 # Calculates the File Coverage metric for PHPUnit projects.  File
 # Coverage is the ratio of PHPUnit test files to PHP class files.
 
-export TESTS=Web/tests/phpunit
-export PHPLIB=Web/phplib
+export TESTS=tests/phpunit
+export PHPLIB=phplib
 #find $PROJECT/**/*\.php | less
 
 find $TESTS/**/*\.php | egrep '(Tests?\.php$)' | perl -lpe 's{$ENV{"TESTS"}/(.*)Tests?.php}{$1}' > /tmp/test_file_identifiers
