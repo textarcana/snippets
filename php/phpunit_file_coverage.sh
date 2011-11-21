@@ -15,7 +15,7 @@ diff -U0 /tmp/test_file_identifiers /tmp/php_class_file_identifiers | egrep '^\+
 
 export TOTAL_CLASS_FILES=`cat /tmp/php_class_file_identifiers | wc -l | bc`
 export UNTESTED_CLASSES=`cat /tmp/classes_without_tests | wc -l | bc`
-export CLASSES_WITH_TESTS=`echo $TOTAL_CLASS_FILES - $TESTED_CLASSES | bc`
+export CLASSES_WITH_TESTS=`echo $TOTAL_CLASS_FILES - $UNTESTED_CLASSES | bc`
 export PERCENTAGE_OF_TESTED_CLASSES=`echo "scale=4; $CLASSES_WITH_TESTS / $TOTAL_CLASS_FILES * 100" | bc | cut -c-4`
 
 git log -n1 --format="As of commit %H on %cd"
