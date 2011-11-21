@@ -17,11 +17,13 @@ export DIR_Q1=`historical_log '1 year ago' '9 months ago' $DIR`
 export DIR_Q2=`historical_log '9 months ago' '6 months ago' $DIR`
 export DIR_Q3=`historical_log '6 months ago' '3 months ago' $DIR`
 export DIR_Q4=`historical_log '3 months ago' 'now' $DIR`
+export DIR_YEAR=`historical_log '1 year ago' 'now' $DIR`
 
 export COMPARE_DIR_Q1=`historical_log '1 year ago' '9 months ago' $COMPARE_DIR`
 export COMPARE_DIR_Q2=`historical_log '9 months ago' '6 months ago' $COMPARE_DIR`
 export COMPARE_DIR_Q3=`historical_log '6 months ago' '3 months ago' $COMPARE_DIR`
 export COMPARE_DIR_Q4=`historical_log '3 months ago' 'now' $COMPARE_DIR`
+export COMPARE_DIR_YEAR=`historical_log '1 year ago' 'now' $COMPARE_DIR`
 
 echo For the year that started with commit:
 echo "    "`git log -n1 --until='1 year ago' --format="%h on %cd"`
@@ -30,7 +32,8 @@ echo "    "`git log -n1 --format="%h on %cd"`"\n"
 
 echo Ratio of unique authors on $COMPARE_DIR vs. $DIR:
 
-echo Q1 `percentage $COMPARE_DIR_Q1 $DIR_Q1`, $COMPARE_DIR_Q1 : $DIR_Q1
-echo Q2 `percentage $COMPARE_DIR_Q2 $DIR_Q2`, $COMPARE_DIR_Q2 : $DIR_Q2
-echo Q3 `percentage $COMPARE_DIR_Q3 $DIR_Q3`, $COMPARE_DIR_Q3 : $DIR_Q3
-echo Q4 `percentage $COMPARE_DIR_Q4 $DIR_Q4`, $COMPARE_DIR_Q4 : $DIR_Q4
+echo "\n   Q1" `percentage $COMPARE_DIR_Q1 $DIR_Q1`, $COMPARE_DIR_Q1 : $DIR_Q1
+echo "   Q2" `percentage $COMPARE_DIR_Q2 $DIR_Q2`, $COMPARE_DIR_Q2 : $DIR_Q2
+echo "   Q3" `percentage $COMPARE_DIR_Q3 $DIR_Q3`, $COMPARE_DIR_Q3 : $DIR_Q3
+echo "   Q4" `percentage $COMPARE_DIR_Q4 $DIR_Q4`, $COMPARE_DIR_Q4 : $DIR_Q4
+echo "\nTOTAL" `percentage $COMPARE_DIR_YEAR $DIR_YEAR`, $COMPARE_DIR_YEAR : $DIR_YEAR
