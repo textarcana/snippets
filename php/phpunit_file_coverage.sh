@@ -3,7 +3,6 @@
 
 export TESTS=tests/phpunit
 export PHPLIB=phplib
-#find $PROJECT/**/*\.php | less
 
 find $TESTS/**/*\.php | egrep '(Tests?\.php$)' | perl -lpe 's{$ENV{"TESTS"}/(.*)Tests?.php}{$1}' > /tmp/test_file_identifiers
 
