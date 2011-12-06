@@ -1,5 +1,11 @@
 # Calculates the File Coverage metric for PHPUnit projects.  File
 # Coverage is the ratio of PHPUnit test files to PHP class files.
+#
+# To generate JSONp
+#
+#     sh phpunit_file_coverage.sh | \
+#       grep 'file coverage' | \
+#       echo "fileCoverage({\"PHPUnit file coverage\": \""`cut -c6-9`"}\")"
 
 export TESTS=tests/phpunit
 export PHPLIB=phplib
