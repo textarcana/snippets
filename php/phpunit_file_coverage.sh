@@ -42,3 +42,19 @@ echo '\n\nTests That Do Not Cover A Class (possibly obsolete)\n\n'
 # This line munges the name of .*Tests.php files to .*Test.php but
 # meh, we shouldn't be doing that any more anyway.
 cat /tmp/tests_without_classes | perl -lpe 's{(.*)}{$1Test.php}'
+
+echo
+
+echo "JSON ================"
+
+echo
+
+echo "PHPUnitFileCoverage({"
+
+git log -n1 --format="\"head revision\": \"%h\", \"date\": \"%cd\", "
+
+echo "\"PHP class files with tests\": $CLASSES_WITH_TESTS, "
+
+echo "\"untested PHP class files\": \"$UNTESTED_CLASSES\""
+
+echo "});"
