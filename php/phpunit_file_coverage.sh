@@ -10,9 +10,9 @@
 export TESTS=tests/phpunit
 export PHPLIB=phplib
 
-find $TESTS/**/*\.php | egrep '(Tests?\.php$)' | perl -lpe 's{$ENV{"TESTS"}/(.*)Tests?.php}{$1}' > /tmp/test_file_identifiers
+find $TESTS -name *\.php | egrep '(Tests?\.php$)' | perl -lpe 's{$ENV{"TESTS"}/(.*)Tests?.php}{$1}' > /tmp/test_file_identifiers
 
-find $PHPLIB/**/*\.php | perl -lpe 's{$ENV{"PHPLIB"}/(.*).php}{$1}' > /tmp/php_class_file_identifiers
+find $PHPLIB -name *\.php | perl -lpe 's{$ENV{"PHPLIB"}/(.*).php}{$1}' > /tmp/php_class_file_identifiers
 
 diff -U0 /tmp/test_file_identifiers /tmp/php_class_file_identifiers | egrep '^-[^-]' | cut -c2- > /tmp/tests_without_classes
 
