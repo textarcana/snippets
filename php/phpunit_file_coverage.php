@@ -1,5 +1,9 @@
 <?php
 
+/**
+ *     php phpunit_file_coverage.php phplib tests/phpunit
+ */
+
 $files = array();
 $files['with tests'] = array();
 $files['not tested'] = array();
