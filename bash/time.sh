@@ -13,3 +13,11 @@ date -r 1320415254 "+%Y-%m-%d %H:%M:%S"
 # CentOS
 
 date -d@1320415254
+
+# zdump prints local time for any time zone
+
+zdump America/Chicago
+
+# To read the list of valid time zones
+
+less `locate zone.tab`
