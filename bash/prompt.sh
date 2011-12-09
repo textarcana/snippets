@@ -18,7 +18,7 @@ TIME_TOKYO="zdump_time 'Asia/Tokyo'"
 TIME_MELBOURNE="zdump_time 'Australia/Melbourne'"
 
 function zdump_time {
-    zdump $1 | cut -d' ' -f7 | cut -d':' -f1-2
+    zdump $1 | perl -pe 's{.*?(\d+:\d+):\d+.*}{$1}'
 }
 
 function parse_git_hash {
