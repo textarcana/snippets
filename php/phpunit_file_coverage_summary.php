@@ -33,4 +33,4 @@ echo count($files['not tested']) . " untested PHP class files files in " . $argv
 
 echo count($files['with tests']) . " tested PHP class files.\n";
 
-echo number_format($percent_tested,2)." % of PHP class files are under test.";
+echo number_format($percent_tested,2)." % of PHP class files are under test.\n";
