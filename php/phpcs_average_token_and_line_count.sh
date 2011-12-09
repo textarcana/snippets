@@ -1,7 +1,7 @@
 # totals and averages of the token and line counts produced by
 # PHPCodeSniffer verbose output
 
-phpcs -v . | \
+phpcs -v --standard=Squiz $1 | \
      perl -lne 'BEGIN{
                       $tokens=0;
                       $lines=0;
