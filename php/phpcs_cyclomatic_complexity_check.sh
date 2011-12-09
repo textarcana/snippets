@@ -3,4 +3,4 @@
 #
 # See also http://stackoverflow.com/questions/4457715/pear-codesniffer-cyclomatic-complexity
 
-phpcs -v --sniffs=Generic.Metrics.CyclomaticComplexity --standard=Squiz .
+phpcs -v --sniffs=Generic.Metrics.CyclomaticComplexity --standard=Squiz $1
