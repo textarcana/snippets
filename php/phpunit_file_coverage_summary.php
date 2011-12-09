@@ -29,7 +29,7 @@ foreach ($iterator as $path) {
 
 $percent_tested = 100 * (count($files['with tests']) / (count($files['not tested']) + count($files['with tests'])));
 
-echo count($files['not tested']) . " untested PHP class files files in " . $argv[1] . $sub_dir . ".\n";
+echo count($files['not tested']) . " untested PHP class files files in " . $argv[1] . (count($argv) > 3 ? $argv[3] : '')  . "\n";
 
 echo count($files['with tests']) . " tested PHP class files.\n";
 
