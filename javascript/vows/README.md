@@ -10,8 +10,10 @@ Just say any of
 
 ### Installing the Test Infrastructure
 
-Node is already installed so you just need the Vows test harness and
-the JSDom browser DOM emulator.
+With Macports:
 
     sudo port install nodejs npm
-    sudo npm install vows jsdom
+
+    export NODE_PATH=/opt/local/lib/node_modules/
+
+    sudo npm install -g vows jsdom
