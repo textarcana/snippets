@@ -7,6 +7,10 @@
  * Node.
  */
 
-getFoo = function () {
+getAnId = function () {
     return document.getElementById('foo').id;
-}
+};
+
+getAClassName = function(){
+    return document.getElementsByClassName('boz')[0].className;
+};

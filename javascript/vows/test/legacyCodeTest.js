@@ -4,15 +4,23 @@ var vows = require('vows'),
 require('./env');
 require('../legacyCodeExample');
 
-document.body.innerHTML = '<div id="foo"></div><div id="bar"></div>';
+document.body.innerHTML = '<div id="foo" class="baz"></div><div id="bar" class="boz"></div>';
 
-vows.describe('A function that searches for classnames').addBatch({
-    'puts the values in a global array': {
-        topic: function () {
-            return getFoo();
+vows.describe('some legacy JS written for the browser').addBatch({
+    'has a function that gets foo': {
+        topic: function(){
+            return getAnId();
         },
-        'which should contain all the class names': function (topic) {
-            assert.equal (topic, 'foo');
+        'which should return foo': function (topic) {
+            assert.equal(topic, 'foo');
+        }
+    },
+    'has a function that finds bar': {
+        topic: function(){
+            return getAClassName();
+        },
+        'which should return bar': function (topic) {
+            assert.equal(topic, 'boz');
         }
     }
 }).export(module);
