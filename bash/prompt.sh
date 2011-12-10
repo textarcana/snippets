@@ -38,8 +38,10 @@ function seconds_since_epoch {
 }
 
 export PS1="${RESET}\n\`${EMOTE}\` \
+\u@\h \
 \`${GIT_DIRTY}\`\$(parse_git_branch) \$(parse_git_hash)${NORMAL} \
-\u@\h:\w \n\t \D{%b %d %Y %z} \$(seconds_since_epoch) \
+\w \
+\n\t \D{%b %d %Y %z} \
 SF\`${TIME_SF}\` \
 MN\`${TIME_CHICAGO}\` \
 NY\`${TIME_NYC}\` \
@@ -47,4 +49,5 @@ UTC\`${TIME_UTC}\` \
 DE\`${TIME_BERLIN}\` \
 JP\`${TIME_TOKYO}\` \
 AU\`${TIME_MELBOURNE}\` \
+\$(seconds_since_epoch) \
 \`${GIT_DIRTY}\`\n\$ ${NORMAL}"
