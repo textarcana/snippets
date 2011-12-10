@@ -12,7 +12,9 @@ FROWNY="${RED}:(${NORMAL}"
 EMOTE="if [ \$? = 0 ]; then echo \"${SMILEY}\"; else echo \"${FROWNY}\"; fi"
 GIT_DIRTY="[[ \$(git status 2> /dev/null | tail -n1) != \"nothing to commit (working directory clean)\" ]] && echo \"${YELLOW}\" || echo \"${GREEN}\""
 TIME_NYC="zdump_time 'America/New_York'"
+TIME_CHICAGO="zdump_time 'America/Chicago'"
 TIME_SF="zdump_time 'America/Los_Angeles'"
+TIME_UTC="zdump_time UTC"
 TIME_BERLIN="zdump_time 'Europe/Berlin'"
 TIME_TOKYO="zdump_time 'Asia/Tokyo'"
 TIME_MELBOURNE="zdump_time 'Australia/Melbourne'"
@@ -39,7 +41,9 @@ export PS1="${RESET}\n\`${EMOTE}\` \
 \`${GIT_DIRTY}\`\$(parse_git_branch) \$(parse_git_hash)${NORMAL} \
 \u@\h:\w \n\t \D{%b %d %Y %z} \$(seconds_since_epoch) \
 SF\`${TIME_SF}\` \
+MN\`${TIME_CHICAGO}\` \
 NY\`${TIME_NYC}\` \
+UTC\`${TIME_UTC}\` \
 DE\`${TIME_BERLIN}\` \
 JP\`${TIME_TOKYO}\` \
 AU\`${TIME_MELBOURNE}\` \
