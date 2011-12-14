@@ -6,4 +6,4 @@ git log --date-order --since="-7days ago" --format="% " --numstat . | \
 # Count of PHP files that were touched this week
 
 git log --date-order --since="-7days ago" --format="% " --numstat . | \
-    egrep '^.+\.php$' | cut -f3 | sort | uniq | wc -l`
+    egrep '^.+\.php$' | cut -f3 | sort | uniq | wc -l
