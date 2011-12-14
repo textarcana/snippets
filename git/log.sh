@@ -1,4 +1,9 @@
-# Leaderboard of files that were edited this week:
+# Leaderboard of all files that were edited this week
 
 git log --date-order --since="-7days ago" --format="% " --numstat . | \
-    cut -f 3 | egrep -v '^$' | sort | uniq -c | sort -rn | less
+    cut -f 3 | egrep -v '^$' | sort | uniq -c | sort -rn
+
+# Count of PHP files that were touched this week
+
+git log --date-order --since="-7days ago" --format="% " --numstat . | \
+    egrep '^.+\.php$' | cut -f3 | sort | uniq | wc -l`
