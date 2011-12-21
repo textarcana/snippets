@@ -1,5 +1,7 @@
 # log what's building and queued
 
+require 'json'
+
 jobs_in_the_all_tab = JSON.load(open('http://ci.example.com/view/All/api/json?tree=' + CGI.escape("name,url,jobs[name,inQueue,color]")))
 
 jobs_in_the_all_tab['jobs'].each do | job  |
