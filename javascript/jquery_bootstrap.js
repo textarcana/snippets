@@ -1,13 +1,29 @@
-/* load jquery */
+/**
+ * Load jQuery in compatibility mode.  Intended for use in hostile
+ * environments :) where another JS library has previously been loaded.
+ * 
+ * See http://stackoverflow.com/questions/2074982
+*/
 
 (function(){
-  var script = document.createElement('script');
+  var compatible = document.createTextNode('jQuery.noConflict();');
+  var remoteScript = document.createElement('script');
+  var compatibilityScript = document.createElement('script');
 
-  script
-    .type = "text/javascript"
-    .src = "https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js";
+  remoteScript.type = "text/javascript";
+  compatibilityScript.type = "text/javascript";
+
+  remoteScript.src = "https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js";
+
+  compatibilityScript.appendChild(compatible);
 
   document
     .getElementsByTagName('body')[0]
-    .appendChild(script);
+    .appendChild(remoteScript);
+
+  document
+    .getElementsByTagName('body')[0]
+    .appendChild(compatibilityScript);
+
 }());
+
