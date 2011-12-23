@@ -3,27 +3,35 @@
  * environments :) where another JS library has previously been loaded.
  * 
  * See http://stackoverflow.com/questions/2074982
-*/
+ */
 
-(function(){
-  var compatible = document.createTextNode('jQuery.noConflict();');
+(function () {
+
   var remoteScript = document.createElement('script');
-  var compatibilityScript = document.createElement('script');
-
   remoteScript.type = "text/javascript";
-  compatibilityScript.type = "text/javascript";
-
-  remoteScript.src = "https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js";
-
-  compatibilityScript.appendChild(compatible);
-
+  remoteScript.src =
+    "https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js";
   document
-    .getElementsByTagName('body')[0]
+    .getElementsByTagName('head')[0]
     .appendChild(remoteScript);
 
-  document
-    .getElementsByTagName('body')[0]
-    .appendChild(compatibilityScript);
+
+    var jqueryBootstrap = function () {
+
+        var compatible = document.createTextNode('jQuery.noConflict();');
+        var compatibilityScript = document.createElement('script');
+
+        compatibilityScript.type = "text/javascript";
+
+        compatibilityScript.appendChild(compatible);
+
+        document
+            .getElementsByTagName('body')[0]
+            .appendChild(compatibilityScript);
+
+    };
+
+    window.addEventListener('load', jqueryBootstrap, false);
 
 }());
 
