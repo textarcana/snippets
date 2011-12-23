@@ -31,7 +31,9 @@
 
     };
 
-    window.addEventListener('load', jqueryBootstrap, false);
+    window.addEventListener('ready', jqueryBootstrap, false);
+
+  /*  now scripts that run on or after load, can reference jQuery  */
 
 }());
 
