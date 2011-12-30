@@ -8,7 +8,7 @@ var Util = {
             document.cookie = id
                 + '='
                 + value
-                +';path=/;domain=.onemorebug.com;expires='
+                +';path=/;expires='
                 + this.cookieTime(expiry);
         },
 
@@ -19,13 +19,10 @@ var Util = {
             return (value) ? value[1].split(';')[0] : defaultValue;
         },
 
-        expire : function( id, domain ) {
-            if(!domain) domain = '.onemorebug.com';
-
+        expire : function( id ) {
             document.cookie = id
-                + '=;domain=' 
-                + domain 
-                + ';path=/;expires='
+                + '=;' 
+                + 'path=/;expires='
                 + this.cookieTime(-1);
 
             this.set(id, this.get(id, false), -1);
