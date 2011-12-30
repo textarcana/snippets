@@ -1,5 +1,4 @@
-var Util = {
-    cookie : {
+var cookie = {
         set : function ( id, value, expiry) {
             if(!expiry) {
                 expiry = 365;
@@ -44,4 +43,3 @@ var Util = {
             return str.replace(re,"$1-$2-$3");
         }
     }
-}
