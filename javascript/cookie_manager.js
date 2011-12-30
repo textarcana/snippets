@@ -1,4 +1,4 @@
-var cookie = {
+var cookieManager = {
     set : function ( id, value, expiry) {
         if(!expiry) {
             expiry = 365;
