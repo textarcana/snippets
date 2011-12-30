@@ -43,3 +43,37 @@ var cookieManager = {
         return str.replace(re,"$1-$2-$3");
     }
 }
+
+
+/**
+ * Use a URL parameter to toggle between two cookie states.
+ *
+ * See http://stackoverflow.com/questions/901115                                        
+ */
+
+var urlParamTool = function(name){                                                                                                                                            
+  var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(window.location.href);
+  if (!results)
+  {
+    return 0;
+  }
+  return results[1] || 0;
+};
+
+/**
+ * Set an admin mode cookie if the 'mode' query parameter is set to
+ * 'expert' or 'admin.'
+ * 
+ * Set the normal user cookie if the 'mode' query parameter is set to
+ * 'normal,' or in the default case where the 'mode' query parameter
+ * has not been not set.
+ */
+
+if(((urlParamTool('mode') === 'expert' || urlParamTool('mode') === 'admin') ||
+    urlParamTool('mode') !== 'normal' && cookieManager.get('admin_mode') === 'activated')){
+    cookieManager.set('admin_mode', 'activated');
+  // do admin things
+} else {
+  cookieManager.set('admin_mode', 'inactive');
+  // do normal user things
+}
