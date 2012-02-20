@@ -24,4 +24,5 @@ lwp-request -o links $URL | \
     perl -pe 'chomp; $_ =~ s{ ^ \w* \s* ( [^#]+ ) .* $ }{$1}x; undef $_ unless m/^http/; $_ = qq{\"$_\"\n} if $_' | \
     sort | \
     uniq | \
-    perl -ne 'chomp; print $_ . qq{\t} . qx{lwp-request -ds $_}'
+    perl -ne 'chomp; print $_ . qq{\t} . qx{lwp-request -ds $_}' | \
+    grep -v "200 OK"
