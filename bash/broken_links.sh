@@ -4,10 +4,6 @@
 # considered to be the same URL, and thus http://foo will only be
 # checked once; even if both URLs occur on the page.
 #
-# Note that if the command produces too much output for you, you can
-# filter down to just the broken links (if any) by piping the output
-# of the entire one-liner, to grep -v "200 OK"
-#
 # These dependencies must be installed on your system:
 #
 #     Perl
