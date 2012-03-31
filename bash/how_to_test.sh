@@ -1,3 +1,21 @@
+# How to print a message if a command fails, while still returning a
+# nonzero exit code.
+#
+# If you do `ls bla || echo "ERROR: you must create directory foo"`
+# then your exit code will be printed correctly but you will wind up
+# with $? containing the (successful) exit code of echo, not of of ls.
+#
+# To circumvent this, do the following (note the parentheses):
+
+ls foo || (echo 'ERROR: first you must mkdir foo' && exit 1)
+
+# So much for exiting from a script.  But if you run the above in a
+# terminal, it will close your terminal session!  Instead you can use
+# the test command to return a nonzero exit code without exiting the
+# terminal.:
+
+ls foo || (echo 'ERROR: first you must mkdir foo' && test a = b)
+
 # check whether a Selenium server is already running
 # and kill any running servers that are found
 
