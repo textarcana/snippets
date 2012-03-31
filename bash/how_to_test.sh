@@ -1,7 +1,7 @@
 # How to print a message if a command fails, while still returning a
 # nonzero exit code.
 #
-# If you do `ls bla || echo "ERROR: you must create directory foo"`
+# If you do `ls foo || echo "ERROR: you must create directory foo"`
 # then your exit code will be printed correctly but you will wind up
 # with $? containing the (successful) exit code of echo, not of of ls.
 #
