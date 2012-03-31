@@ -12,7 +12,7 @@ ls foo || (echo 'ERROR: first you must mkdir foo' && exit 1)
 # So much for exiting from a script.  But if you run the above in a
 # terminal, it will close your terminal session!  Instead you can use
 # the test command to return a nonzero exit code without exiting the
-# terminal.:
+# terminal:
 
 ls foo || (echo 'ERROR: first you must mkdir foo' && test a = b)
 
