@@ -16,6 +16,22 @@ ls foo || (echo 'ERROR: first you must mkdir foo' && exit 1)
 
 ls foo || (echo 'ERROR: first you must mkdir foo' && test a = b)
 
+# Storing the current value of $? in a temp variable can be useful.
+# Eg if you need to do some things unconditionally, but also want to
+# fail the build if one of those things failed.
+#
+# Eg if you run wget against a couple of hosts, you might want to
+# archive the downloaded files, even if connection to some of the
+# hosts failed.  But it would still be convenient to fail the build in
+# this case, since you would want to investigate what is up with the
+# problematic hosts:
+
+wget -P archive_dir host1 host2 host3
+WGET_EXIT_STATUS=$?
+tar -cf archive_dir
+pbzip2 archive_dir.tar
+test $WGET_EXIT_STATUS -eq 0
+
 # check whether a Selenium server is already running
 # and kill any running servers that are found
 
