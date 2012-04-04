@@ -1,0 +1,1 @@
+set object 1 rectangle from screen 0,0 to screen 1,1 fillcolor rgb"#eeeeeee" behind; unset xtics; set xlabel 'Ratio of test to application commits over the year from April 4 2011 to April 2 2012.'; plot 'everyone' with points
