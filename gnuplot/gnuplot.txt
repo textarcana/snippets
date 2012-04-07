@@ -17,8 +17,7 @@ plot 'authors_of_tests' using 2:xticlabels(1) with linespoints title "authors on
 # draw a histogram
 # see http://gnuplot.sourceforge.net/demo/histograms.2.gnu
 
-set terminal png font "/Library/Fonts/Arial.ttf" 14 size 1000,800
-set output 'authors.png'
+set terminal png font "/Library/Fonts/Arial.ttf" 14 size 1400,800
 set boxwidth 0.9 absolute
 set style fill   solid 1.00 border lt -1
 set key inside right top vertical Right noreverse noenhanced autotitles nobox
@@ -31,7 +30,19 @@ set xtics border in scale 0,0 nomirror rotate by -45  offset character 0, 0, 0 a
 set xtics  norangelimit font ",8"
 set xtics   ()
 i = 22
-set yrange [ 0 : 110 ] noreverse nowriteback
-set title 'Ratio of people who committed on tests vs. people who committed application code'
-set ylabel 'Count of Git authors per month'
-plot 'authors_of_tests' using 2:xticlabels(1) lt rgb "#666666" title 'committers on tests/phpunit', 'authors_of_application' using 2:xtic(1) lt rgb "#333333" title 'committers on phplib/'
+
+# for commit ratios:
+
+set yrange [ 0 : 80 ] noreverse nowriteback
+set title 'Ratio of people who committed to tests vs. people who committed application code as of April 2012 (rev 9fb1745)'
+set output '/Users/noahsussman/Desktop/commit_ratios_weekly_over_one_year.png';
+set ylabel 'Count of unique Git authors'
+plot '/Users/noahsussman/git/Continuity/authors_of_tests/authors_of_tests.tsv' using 2:xticlabels(1) lt rgb "#666666" title 'committers on tests/phpunit', '/Users/noahsussman/git/Continuity/authors_of_tests/authors_of_application.tsv' using 2:xtic(1) lt rgb "#333333" title 'committers on phplib/'
+
+# for commit ratios as percentages:
+
+set title 'Percentage of authors of application code who also write unit tests as of April 2012 (rev 9fb1745)'
+set yrange [ 0 : 50 ] noreverse nowriteback
+set ylabel 'Percentage of people who test'
+set output '/Users/noahsussman/Desktop/commit_ratios_weekly_as_a_percentage_over_one_year.png';
+plot '/Users/noahsussman/git/Continuity/authors_of_tests/commit_ratios.tsv' using 2:xticlabels(1) lt rgb "#999999" title 'Percentage of people who test'
