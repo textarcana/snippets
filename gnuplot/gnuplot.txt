@@ -46,3 +46,7 @@ set yrange [ 0 : 50 ] noreverse nowriteback
 set ylabel 'Percentage of people who test'
 set output '/Users/noahsussman/Desktop/commit_ratios_weekly_as_a_percentage_over_one_year.png';
 plot '/Users/noahsussman/git/Continuity/authors_of_tests/commit_ratios.tsv' using 2:xticlabels(1) lt rgb "#999999" title 'Percentage of people who test'
+
+# larger data sets need a scatter plot and higher contrast colors
+
+plot '/Users/noahsussman/git/Continuity/authors_of_tests/authors_of_tests.tsv' using 2:xticlabels(1) lt rgb "#952400" with points title 'committers on tests/phpunit', '/Users/noahsussman/git/Continuity/authors_of_tests/authors_of_application.tsv' using 2 lt rgb "#333333" with points title 'committers on phplib/'
