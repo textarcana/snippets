@@ -39,7 +39,7 @@ ps ax | grep selenium | cut -d' ' -f2 | xargs kill
 
 # wait until port 4444 opens up
 
-while ! nc -vz localhost 4444; do sleep 1 && echo "checking whether service is up    `date`"; done
+while ! nc -vz localhost 4444 2>&1 ; do sleep 0.2; done 2>&1 > /dev/null
 
 # validate that two sha1 hashes are identical
 #
