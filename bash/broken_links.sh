@@ -21,4 +21,4 @@ lwp-request -o links $URL | \
     sort | \
     uniq | \
     perl -ne 'chomp; print $_ . qq{\t} . qx{lwp-request -ds $_}' | \
-    grep -v "200 OK"
+    grep -v '200 OK'
