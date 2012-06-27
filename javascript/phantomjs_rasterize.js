@@ -13,7 +13,12 @@ if (phantom.args.length < 2 || phantom.args.length > 3) {
 } else {
     address = phantom.args[0];
     output = phantom.args[1];
-    page.viewportSize = { width: 600, height: 600 };
+
+    page.viewportSize = { 
+      width: 1920, 
+      height: 1080 
+    };
+
     page.open(address, function (status) {
         if (status !== 'success') {
             console.log('Unable to load the address!');
@@ -21,7 +26,7 @@ if (phantom.args.length < 2 || phantom.args.length > 3) {
             window.setTimeout(function () {
                 page.render(output);
                 phantom.exit();
-            }, 200);
+            }, 100);
         }
     });
 }
