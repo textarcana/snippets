@@ -1,3 +1,9 @@
+/**
+ * Rasterize: Example utility from the PhantomJS documentation.
+ * Takes screenshots of remote Web pages.
+ * See http://code.google.com/p/phantomjs/wiki/QuickStart
+ */
+
 var page = require('webpage').create(),
     address, output, size;
 
