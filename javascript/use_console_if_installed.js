@@ -1,29 +1,23 @@
 /**
- * Avoid throwing errors when Firebug is not installed.
- * See http://mattsnider.com/test/debugging-firebug-console-emulator/
+ * Avoid throwing errors in browsers that do not have a console, and
+ * disable the console when not running in debug mode.
  *
- * @todo as written this prevents using the console in WebKit.
+ * See also http://mattsnider.com/test/debugging-firebug-console-emulator/
  */
 
-$.site.mes_getConsole = function() {
-  if (window.console && window.console.firebug) {
-    return window.console;
-  }
-  else {
-    return {
-      error: function() {},
-      debug: function() {},
-      info: function() {},
-      log: function() {},
-      warn: function() {}
+/*jslint browser:true */
+
+var debugging_is_enabled = true,
+    console;
+
+if (debugging_is_enabled === true && typeof window.console !== "undefined" && window.console) {
+    console = window.console;
+} else {
+    console = {
+        error: function () {},
+        debug: function () {},
+        info: function () {},
+        log: function () {},
+        warn: function () {}
     };
-  }
-};
-
-
-$(function () {
-
-    if (! window.console)
-      window.console = $.site.mes_getConsole();
-
-});
+}
