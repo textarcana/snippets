@@ -16,7 +16,9 @@ sudo tcpdump -qte -s 0 -i en1
 
 # http traffic originating from a specific subnet
 
-sudo tcpdump -S -s 0 port 80 and net 10.0.1.0/24
+sudo tcpdump -S -s 0 port 80 and net 10.9.8.0/24
+
+sudo tcpdump -Sn net 10.9.0.0/16
 
 # show Web traffic and display ASCII text (HTML) contained in packets
 
