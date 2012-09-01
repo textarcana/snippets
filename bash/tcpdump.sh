@@ -54,3 +54,7 @@ nc -vz 10.0.1.9 8000-8999 2> /dev/null
 # capture traffic for later viewing in wireshark
 
 tcpdump -w somefile.cap -s 1500 -n -i en1 net 10.0.1.9
+
+# show incoming traffic from external hosts
+
+sudo tcpdump -Sn dst net 10.0.0.0/16 and not src net 10.0.0.0/16
