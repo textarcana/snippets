@@ -58,3 +58,8 @@ tcpdump -w somefile.cap -s 1500 -n -i en1 net 10.0.1.9
 # show incoming traffic from external hosts
 
 sudo tcpdump -Sn dst net 10.0.0.0/16 and not src net 10.0.0.0/16
+
+# show conversations with external hosts
+
+sudo tcpdump -S \(dst net 10.0.0.0/16 and src net not 10.0.0.0/16\) or \
+    \(src net 10.0.0.0/16 and dst net not 10.0.0.0/16\)
