@@ -63,3 +63,7 @@ sudo tcpdump -Sn dst net 10.0.0.0/16 and not src net 10.0.0.0/16
 
 sudo tcpdump -S \(dst net 10.0.0.0/16 and src net not 10.0.0.0/16\) or \
     \(src net 10.0.0.0/16 and dst net not 10.0.0.0/16\)
+
+# show incoming data from from either Cassandra or Oracle
+
+sudo tcpdump -SnX \(src port 9160 or src port 1521\)
