@@ -33,24 +33,6 @@ sudo tcpdump -qXX -s 0 port 80
 
 sudo tcpdump -vvvSeXX -s 0 port 80
 
-# Show all hosts on the local subnet by
-# performing reverse DNS lookups.
-# Nameservers listed in resolv.conf
-
-nmap -sL 10.0.1.0/24
-
-# Discover hosts that respond to pings.
-
-nmap -sP -T4 --reason 10.0.1.0/24 
-
-# Discover hosts and show all packets sent and received by Nmap
-
-nmap -sP -T4 --reason --packet-trace 10.0.1.0/28
-
-# Look for an open port in the 8k range
-
-nc -vz 10.0.1.9 8000-8999 2> /dev/null
-
 # capture traffic for later viewing in wireshark
 
 tcpdump -w somefile.cap -s 1500 -n -i en1 net 10.0.1.9
