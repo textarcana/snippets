@@ -33,24 +33,6 @@ sudo tcpdump -qXX -s 0 port 80
 
 sudo tcpdump -vvvSeXX -s 0 port 80
 
-# Show all hosts on the local subnet by
-# performing reverse DNS lookups.
-# Nameservers listed in resolv.conf
-
-nmap -sL 10.0.1.0/24
-
-# Discover hosts that respond to pings.
-
-nmap -sP -T4 --reason 10.0.1.0/24 
-
-# Discover hosts and show all packets sent and received by Nmap
-
-nmap -sP -T4 --reason --packet-trace 10.0.1.0/28
-
-# Look for an open port in the 8k range
-
-nc -vz 10.0.1.9 8000-8999 2> /dev/null
-
 # capture traffic for later viewing in wireshark
 
 tcpdump -w somefile.cap -s 1500 -n -i en1 net 10.0.1.9
@@ -63,3 +45,11 @@ sudo tcpdump -Sn dst net 10.0.0.0/16 and not src net 10.0.0.0/16
 
 sudo tcpdump -S \(dst net 10.0.0.0/16 and src net not 10.0.0.0/16\) or \
     \(src net 10.0.0.0/16 and dst net not 10.0.0.0/16\)
+
+# show incoming data from from either Cassandra or Oracle
+
+sudo tcpdump -vvv -tttt -SeXXnq -s 0 \(port 9160 or port 1521\)
+
+# same thing but less verbose:
+
+sudo tcpdump -tttt -Snq \(port 9160 or port 1521\)

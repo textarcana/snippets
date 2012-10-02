@@ -48,3 +48,7 @@ while ! nc -vz localhost 4444 ; do sleep 0.2; done 2>&1 > /dev/null
 # won't be what you expect.
 
 test `echo -n foo | shasum | cut -d' ' -f1` == `perl -e "print qq{foo}" | shasum | cut -d' ' -f1` && echo hashes are the same || echo OOPS! hash mismatch
+
+# Alert when there is a change to the last-modified header on a remote resource.
+
+for i in {1..1000}; do curl -sI http://example.com/myAwesome.js | grep Last-Modified | grep -v 'Last-Modified: Fri, 28 Sep 2012 02:02:27 GMT' || echo `date`: resource not yet updated; sleep 15; done
