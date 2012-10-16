@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 """
 
+UPDATED: I've moved this tool to its own git repo: https://github.com/textarcana/sparkler
+Future development will happen there, not here.
+
 A CLI tool like spark, that produces sparklines from
 whitespace-delimited lists of numbers passed by other command line
 arguments. See https://github.com/holman/spark
