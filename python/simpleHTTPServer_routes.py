@@ -5,11 +5,14 @@ Written by Huy Nguyen.
 See http://www.huyng.com/posts/modifying-python-simplehttpserver/
 """
 
+import sys
 import os
 import posixpath
 import urllib
 import BaseHTTPServer
 from SimpleHTTPServer import SimpleHTTPRequestHandler
+
+PORT = 9090
 
 """
 modify this to add additional routes, eg
@@ -52,6 +55,9 @@ class RequestHandler(SimpleHTTPRequestHandler):
             path = os.path.join(path, word)
 
         return path
+
+if not sys.argv[1:]:
+    sys.argv.append(PORT)
 
 if __name__ == '__main__':
     BaseHTTPServer.test(RequestHandler, BaseHTTPServer.HTTPServer)
