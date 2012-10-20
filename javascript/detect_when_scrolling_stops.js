@@ -17,6 +17,6 @@ afterScroll = function () {
             console.log('Scrolling has stopped.');
         }
     }, 250);
-}
+};
 
-window.onscroll = afterScroll
+window.onscroll = afterScroll;
