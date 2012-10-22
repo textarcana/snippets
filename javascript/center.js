@@ -8,15 +8,17 @@
  * for production
  */
 
-var elem, getOffset, reposition, center, center2, stayCentered;
+var target, reposition, center, center2, stayCentered;
 
 stayCentered = function  (el) {
+    
+    target = el;
 
     center = function (property1, property2, property3) {
         console.log('window[%s]=', property2, window[property2]);
         console.log('el[%s]=', property3, window[property2]);
         console.log('CSS %s=', property1, el.style[property1]);
-        el.style[property1] = window[property2]/2 - el[property3] + 'px';
+        el.style[property1] = window[property2]/2 - el[property3]/2 + 'px';
     }
 
     reposition = function(){
