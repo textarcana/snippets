@@ -1,0 +1,11 @@
+The method I was taught in school, back in the days when Arthur Andersen existed, and prior to Andersen Consulting or AssVenture (or whatever they're called now), the method that was taught to me was credited to them, and looked like this:
+
+Estimate how long it will take, if everything goes right. Call it T1.
+Estimate the expected time it will take, knowing how some things usually go wrong. Call it T2.
+Estimate the worst possible case, if everything goes wrong, and there are lots of unforeseen issues - you are 99% sure you can get it done within this amount of time. Call it T3.
+
+The Weighted average estimate is (T1+(4*T2) + T3)/6
+
+This yields some very odd T values, but often works out to be a reasonable estimate. The developers may tell me "If all goes well, it'll take 2 days. I expect it to be 4 days. But worst case, it might be 40 days." And you end up with a 9.6 day estimate. (which is SIGNIFICANTLY different than the "I expect it to be 4 days".)
+
+http://ask.slashdot.org/comments.pl?sid=1543200&cid=31075702
