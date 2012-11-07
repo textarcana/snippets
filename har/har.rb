@@ -9,6 +9,13 @@ irb_context.echo = false
 
 require 'json'
 
-d = JSON.load open('www.example.com.har')
+document = JSON.load open('www.example.com.har')
 
-# 
+# an array containing the record of each request and response, in
+# chronological order
+
+entries = document['log']['entries']
+
+# make a hash table of all request and response cookies
+
+cookies = d['log']['entries'].map {|i| {'request' => i['request']['cookies'], 'response' => i['response']['cookies']}}
