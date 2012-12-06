@@ -19,3 +19,15 @@ while true;do \
     sleep 5 && \
     clear; \
     done
+
+# and here are some actual netstat tips, for Linux systems:
+
+netstat -a | egrep 'Proto|LISTEN'
+
+# for port numbers instead of service names:
+
+netstat -an | egrep 'Proto|LISTEN'
+
+# show open ports and their processes:
+
+netstat -lnptu
