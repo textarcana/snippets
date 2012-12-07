@@ -9,5 +9,30 @@ gource --title `git symbolic-ref HEAD | cut -d'/' -f3` --key --highlight-users -
 
 gource  --title `git symbolic-ref HEAD | cut -d'/' -f3` --key --font-size 20 --highlight-all-users -1920x1080 --stop-at-end -s 0.2 -i 63072000 --hide filenames,bloom,progress,mouse -o - | ffmpeg -y -b 3000K -r 60 -f image2pipe -vcodec ppm -i - -vcodec libx264 -threads 0 video.mp4
 
+# Other interesting options (use -H to see them all)
+#
+# --bloom-multiplier       Adjust the amount of bloom (default: 1.0)
+# --bloom-intensity        Adjust the intensity of the bloom (default: 0.75)
+# --user-scale SCALE       Change scale of users (default: 1.0)
 
-
+gource  --title `git symbolic-ref HEAD | cut -d'/' -f3` \
+    --key \
+    --font-size 20 \
+    --highlight-all-users \
+    -1920x1080 --stop-at-end \
+    -s 0.2 \
+    -i 63072000 \
+    --hide filenames,progress,mouse \
+    --bloom-multiplier 0.5 \
+    --bloom-intensity 0.375 \
+    --user-scale 2 \
+    -o - | \
+    ffmpeg -y \
+    -b 3000K \
+    -r 60 \
+    -f image2pipe \
+    -vcodec ppm \
+    -i - \
+    -vcodec libx264 \
+    -threads 0 \
+    video.mp4
