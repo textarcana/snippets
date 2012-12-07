@@ -8,14 +8,14 @@ gource --title `git symbolic-ref HEAD | cut -d'/' -f3` --key --highlight-users -
 # See http://rubyist-journal.com/2011/05/05/create-artwork-with-gource/
 
 gource  \
-    --hash-seed 101010
+    --hash-seed 101010 \
     --title `git symbolic-ref HEAD | cut -d'/' -f3` \
     --key \
     --font-size 20 \
     --highlight-all-users \
-    -1920x1080 --stop-at-end \
+    -1920x1080 \
+    --stop-at-end \
     -s 0.2 \
-    -i 63072000 \
     --hide filenames,progress,mouse,bloom \
     --user-scale 1.33 \
     -o - | \
