@@ -15,17 +15,17 @@ gource  --title `git symbolic-ref HEAD | cut -d'/' -f3` --key --font-size 20 --h
 # --bloom-intensity        Adjust the intensity of the bloom (default: 0.75)
 # --user-scale SCALE       Change scale of users (default: 1.0)
 
-gource  --title `git symbolic-ref HEAD | cut -d'/' -f3` \
+gource  \
+    --hash-seed 101010
+    --title `git symbolic-ref HEAD | cut -d'/' -f3` \
     --key \
     --font-size 20 \
     --highlight-all-users \
     -1920x1080 --stop-at-end \
     -s 0.2 \
     -i 63072000 \
-    --hide filenames,progress,mouse \
-    --bloom-multiplier 0.5 \
-    --bloom-intensity 0.375 \
-    --user-scale 2 \
+    --hide filenames,progress,mouse,bloom \
+    --user-scale 1.33 \
     -o - | \
     ffmpeg -y \
     -b 3000K \
