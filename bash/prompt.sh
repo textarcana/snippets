@@ -19,10 +19,6 @@ EMOTE="if [ \$? = 0 ]; then echo \"${SMILEY}\"; else echo \"${FROWNY}\"; fi"
 
 GIT_DIRTY="[[ \$(git status 2> /dev/null | tail -n1) != \"nothing to commit, working directory clean\" ]] && echo \"${YELLOW}\" || echo \"${GREEN}\""
 
-function time_zone {
-    echo `date +%Z`
-}
-
 function parse_git_hash {
   hash=$(git log --format="%h" -n1 2> /dev/null) || return
   echo $hash
@@ -37,5 +33,5 @@ export PS1="${RESET}\n\`${EMOTE}\` \
 \u@\h \
 \`${GIT_DIRTY}\`\$(parse_git_branch) \$(parse_git_hash)${NORMAL} \
 \w \
-\n\t \D{%b %d %Y %z} $(time_zone)\
+\n\t \D{%b %d %Y %z %Z}\
 \`${GIT_DIRTY}\`\n\$ ${NORMAL}"
